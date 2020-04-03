@@ -6,9 +6,11 @@
 
 const pianoSound = document.querySelectorAll(".keysound");
 const pianoSvg = document.querySelectorAll(".piano");
-let hiColor = "#85D2FF";
+let hiColor = "#f0d2a8";
+let rootColor = "#84DB90";
 let regColor = "#FFFFF7";
 let sharpColor = "#4B4B4B";
+let clickColor = "#c2c5CC"
 //let selector = document.getElementById("key-scale");
 let keyStart;
 
@@ -94,7 +96,7 @@ function majKeyHighlight() {
   let keyFirst;
   for (let i = 0; i < pianoSvg.length; i++) {
     if (pianoSvg[i].dataset.keyNum == keyStart) {
-      pianoSvg[i].style.fill = hiColor; //color starting key
+      pianoSvg[i].style.fill = rootColor; //color starting key
       keyFirst = parseInt(pianoSvg[i].dataset.keyNum);
     }
   }
@@ -102,23 +104,22 @@ function majKeyHighlight() {
   pianoSvg.forEach(function(x) {
     if (x.dataset.keyNum == (keyFirst + 2) % 12) {
       x.style.fill = hiColor;
-    }
-    if (x.dataset.keyNum == (keyFirst + 4) % 12) {
+    } else if (x.dataset.keyNum == (keyFirst + 4) % 12) {
       x.style.fill = hiColor;
-    }
-    if (x.dataset.keyNum == (keyFirst + 5) % 12) {
+    } else if (x.dataset.keyNum == (keyFirst + 5) % 12) {
       x.style.fill = hiColor;
-    }
-    if (x.dataset.keyNum == (keyFirst + 7) % 12) {
+    } else if (x.dataset.keyNum == (keyFirst + 7) % 12) {
       x.style.fill = hiColor;
-    }
-    if (x.dataset.keyNum == (keyFirst + 9) % 12) {
+    } else if (x.dataset.keyNum == (keyFirst + 9) % 12) {
       x.style.fill = hiColor;
-    }
-    if (x.dataset.keyNum == (keyFirst + 11) % 12) {
+    } else if (x.dataset.keyNum == (keyFirst + 11) % 12) {
       x.style.fill = hiColor;
+    } else if (x.id.includes("#") && x.dataset.keyNum != keyFirst) {
+        x.style.fill = sharpColor;
+    } else if (!x.id.includes("#") && x.dataset.keyNum != keyFirst) {
+        x.style.fill = regColor;
     }
-  });
+})
 }
 
 console.log(pianoSvg[0].dataset.pianoKey);
@@ -128,9 +129,17 @@ pianoSvg.forEach(function(x) {
   x.addEventListener("click", function(any) {
     for (let i = 0; i < pianoSound.length; i++) {
       if (any.target.dataset.pianoKey == pianoSound[i].dataset.pianoKey) {
-        pianoSound[i].currentTime = 0;
+        pianoSound[i].currentTime = 0.05;
         pianoSound[i].play();
+        pressDownColor(any);
       }
     }
   });
 });
+
+function pressDownColor(param) {
+  param.target.style.fill = clickColor;
+  setTimeout(function() {
+    majKeyHighlight();
+  }, 170);
+}
