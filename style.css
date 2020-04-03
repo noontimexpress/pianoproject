@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+.options {
+  text-align: center;
+  padding: 10px;
+}
+
+.container svg {
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  width: 100%;
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>Piano Project</title>
+  </head>
+  <body>
+    <h1>Piano</h1>
+    <div class="options">
+      <label for="key-scale">Choose a key scale:</label>
+      <select id="key-scale">
+        <option value="C Major" selected="selected">C Major</option>
+        <option value="D Major">D Major</option>
+        <option value="E Major">E Major</option>
+        <option value="F Major">F Major</option>
+        <option value="G Major">G Major</option>
+        <option value="A Major">A Major</option>
+        <option value="B Major">B Major</option>
+      </select>
+    </div>
+
+    <div class="container">
+      <svg
+        width="100%"
+        viewBox="0 0 1120 400"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <title>Piano Keyboard</title>
+        <defs></defs>
+        <g id="piano-keyboard">
+          <g id="octave-1">
+            <rect
+              id="octave-1-C-key"
+              class="piano"
+              data-piano-key="C"
+              data-key-num="1"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="0"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-D-key"
+              class="piano"
+              data-piano-key="D"
+              data-key-num="3"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="80"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-E-key"
+              class="piano"
+              data-piano-key="E"
+              data-key-num="5"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="160"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-F-key"
+              class="piano"
+              data-piano-key="F"
+              data-key-num="6"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="240"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-G-key"
+              class="piano"
+              data-piano-key="G"
+              data-key-num="8"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="320"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-A-key"
+              class="piano"
+              data-piano-key="A"
+              data-key-num="10"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="400"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-B-key"
+              class="piano"
+              data-piano-key="B"
+              data-key-num="12"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="480"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-1-C#-key"
+              class="piano"
+              data-piano-key="C#"
+              data-key-num="2"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="60"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-1-D#-key"
+              class="piano"
+              data-piano-key="D#"
+              data-key-num="4"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="140"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-1-F#-key"
+              class="piano"
+              data-piano-key="F#"
+              data-key-num="7"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="300"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-1-G#-key"
+              class="piano"
+              data-piano-key="G#"
+              data-key-num="6"
+              data-key-num="9"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="380"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-1-A#-key"
+              class="piano"
+              data-piano-key="A#"
+              data-key-num="11"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="460"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+          </g>
+          <g id="octave-2" transform="translate(560.000000, 0.000000)">
+            <rect
+              id="octave-2-C-key"
+              class="piano"
+              data-piano-key="C"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="0"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-D-key"
+              class="piano"
+              data-piano-key="D"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="80"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-E-key"
+              class="piano"
+              data-piano-key="E"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="160"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-F-key"
+              class="piano"
+              data-piano-key="F"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="240"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-G-key"
+              class="piano"
+              data-piano-key="G"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="320"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-A-key"
+              class="piano"
+              data-piano-key="A"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="400"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-B-key"
+              class="piano"
+              data-piano-key="B"
+              stroke="#555555"
+              fill="#FFFFF7"
+              x="480"
+              y="0"
+              width="80"
+              height="400"
+            ></rect>
+            <rect
+              id="octave-2-C#-key"
+              class="pian"
+              data-piano-key="C#"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="60"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-2-D#-key"
+              class="pian"
+              data-piano-key="D#"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="140"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-2-F#-key"
+              class="pian"
+              data-piano-key="F#"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="300"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-2-G#-key"
+              class="pian"
+              data-piano-key="G#"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="380"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+            <rect
+              id="octave-2-A#-key"
+              class="pian"
+              data-piano-key="A#"
+              stroke="#979797"
+              fill="#4B4B4B"
+              x="460"
+              y="0"
+              width="40"
+              height="280"
+            ></rect>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <audio data-piano-key="C" src="audio/c3.mp3"></audio>
+    <audio data-piano-key="D" src="audio/d3.mp3"></audio>
+    <audio data-piano-key="E" src="audio/e3.mp3"></audio>
+    <audio data-piano-key="F" src="audio/f3.mp3"></audio>
+    <audio data-piano-key="G" src="audio/g3.mp3"></audio>
+    <audio data-piano-key="A" src="audio/a3.mp3"></audio>
+    <audio data-piano-key="B" src="audio/b3.mp3"></audio>
+    <audio data-piano-key="C#" src="audio/c-3.mp3"></audio>
+    <audio data-piano-key="D#" src="audio/d-3.mp3"></audio>
+    <audio data-piano-key="F#" src="audio/f-3.mp3"></audio>
+    <audio data-piano-key="G#" src="audio/g-3.mp3"></audio>
+    <audio data-piano-key="A#" src="audio/a-3.mp3"></audio>
+  </body>
+</html>
+
