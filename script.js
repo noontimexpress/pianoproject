@@ -6,6 +6,7 @@ if (document.readyState === "loading") {
 
 function afterLoaded() {
   const pianoSvg = document.querySelectorAll(".piano");
+  const hiColor = '#85D2FF';
   let e = document.getElementById("key-scale");
   let keyStart;
   selectKey();
@@ -14,46 +15,59 @@ function afterLoaded() {
     switch (e.value) {
       case "C Major":
         keyStart = 0;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
+        break;
+      case "C# Major":
+        keyStart = 1;
+        majKeyHighlight();
         break;
       case "D Major":
         keyStart = 2;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
+        break;
+      case "D# Major":
+        keyStart = 3;
+        majKeyHighlight();
         break;
       case "E Major":
         keyStart = 4;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
         break;
       case "F Major":
         keyStart = 5;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
+        break;
+      case "F# Major":
+        keyStart = 6;
+        majKeyHighlight();
         break;
       case "G Major":
         keyStart = 7;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
+        break;
+      case "G# Major":
+        keyStart = 8;
+        majKeyHighlight();
         break;
       case "A Major":
         keyStart = 9;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
+        break;
+      case "A# Major":
+        keyStart = 10;
+        majKeyHighlight();
         break;
       case "B Major":
         keyStart = 11;
-        console.log(keyStart);
-        keyHighlight();
+        majKeyHighlight();
         break;
     }
 
-    function keyHighlight() {
+    function majKeyHighlight() {
       let keyFirst;
       for (let i = 0; i < pianoSvg.length; i++) {
         if (pianoSvg[i].dataset.keyNum == keyStart) {
-          pianoSvg[i].style.fill = "yellow"; //color starting key
+          pianoSvg[i].style.fill = hiColor; //color starting key
           keyFirst = parseInt(pianoSvg[i].dataset.keyNum);
         }
       }
@@ -66,23 +80,23 @@ function afterLoaded() {
 
       pianoSvg.forEach(function(x) {
         if (x.dataset.keyNum == (keyFirst + 2) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
         }
         if (x.dataset.keyNum == (keyFirst + 4) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
           console.log(x);
         }
         if (x.dataset.keyNum == (keyFirst + 5) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
         }
         if (x.dataset.keyNum == (keyFirst + 7) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
         }
         if (x.dataset.keyNum == (keyFirst + 9) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
         }
         if (x.dataset.keyNum == (keyFirst + 11) % 12) {
-          x.style.fill = "yellow";
+          x.style.fill = hiColor;
         }
       });
     }
