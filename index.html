@@ -45,6 +45,7 @@
               class="piano"
               data-piano-key="C3"
               data-key-num="0"
+              data-midi="60"
               stroke="#555555"
               fill="#FFFFF7"
               x="0"
@@ -57,6 +58,7 @@
               class="piano"
               data-piano-key="D3"
               data-key-num="2"
+              data-midi="62"
               stroke="#555555"
               fill="#FFFFF7"
               x="80"
@@ -69,6 +71,7 @@
               class="piano"
               data-piano-key="E3"
               data-key-num="4"
+              data-midi="64"
               stroke="#555555"
               fill="#FFFFF7"
               x="160"
@@ -81,6 +84,7 @@
               class="piano"
               data-piano-key="F3"
               data-key-num="5"
+              data-midi="65"
               stroke="#555555"
               fill="#FFFFF7"
               x="240"
@@ -93,6 +97,7 @@
               class="piano"
               data-piano-key="G3"
               data-key-num="7"
+              data-midi="67"
               stroke="#555555"
               fill="#FFFFF7"
               x="320"
@@ -105,6 +110,7 @@
               class="piano"
               data-piano-key="A4"
               data-key-num="9"
+              data-midi="69"
               stroke="#555555"
               fill="#FFFFF7"
               x="400"
@@ -117,6 +123,7 @@
               class="piano"
               data-piano-key="B4"
               data-key-num="11"
+              data-midi="71"
               stroke="#555555"
               fill="#FFFFF7"
               x="480"
@@ -129,6 +136,7 @@
               class="piano"
               data-piano-key="C#3"
               data-key-num="1"
+              data-midi="61"
               stroke="#979797"
               fill="#4B4B4B"
               x="60"
@@ -141,6 +149,7 @@
               class="piano"
               data-piano-key="D#3"
               data-key-num="3"
+              data-midi="63"
               stroke="#979797"
               fill="#4B4B4B"
               x="140"
@@ -153,6 +162,7 @@
               class="piano"
               data-piano-key="F#3"
               data-key-num="6"
+              data-midi="66"
               stroke="#979797"
               fill="#4B4B4B"
               x="300"
@@ -165,6 +175,7 @@
               class="piano"
               data-piano-key="G#3"
               data-key-num="8"
+              data-midi="68"
               stroke="#979797"
               fill="#4B4B4B"
               x="380"
@@ -177,6 +188,7 @@
               class="piano"
               data-piano-key="A#4"
               data-key-num="10"
+              data-midi="70"
               stroke="#979797"
               fill="#4B4B4B"
               x="460"
@@ -191,6 +203,7 @@
               class="piano"
               data-piano-key="C4"
               data-key-num="0"
+              data-midi="72"
               stroke="#555555"
               fill="#FFFFF7"
               x="0"
@@ -203,6 +216,7 @@
               class="piano"
               data-piano-key="D4"
               data-key-num="2"
+              data-midi="74"
               stroke="#555555"
               fill="#FFFFF7"
               x="80"
@@ -215,6 +229,7 @@
               class="piano"
               data-piano-key="E4"
               data-key-num="4"
+              data-midi="76"
               stroke="#555555"
               fill="#FFFFF7"
               x="160"
@@ -227,6 +242,7 @@
               class="piano"
               data-piano-key="F4"
               data-key-num="5"
+              data-midi="77"
               stroke="#555555"
               fill="#FFFFF7"
               x="240"
@@ -239,6 +255,7 @@
               class="piano"
               data-piano-key="G4"
               data-key-num="7"
+              data-midi="79"
               stroke="#555555"
               fill="#FFFFF7"
               x="320"
@@ -251,6 +268,7 @@
               class="piano"
               data-piano-key="A5"
               data-key-num="9"
+              data-midi="81"
               stroke="#555555"
               fill="#FFFFF7"
               x="400"
@@ -263,6 +281,7 @@
               class="piano"
               data-piano-key="B5"
               data-key-num="11"
+              data-midi="83"
               stroke="#555555"
               fill="#FFFFF7"
               x="480"
@@ -275,6 +294,7 @@
               class="piano"
               data-piano-key="C#4"
               data-key-num="1"
+              data-midi="73"
               stroke="#979797"
               fill="#4B4B4B"
               x="60"
@@ -287,6 +307,7 @@
               class="piano"
               data-piano-key="D#4"
               data-key-num="3"
+              data-midi="75"
               stroke="#979797"
               fill="#4B4B4B"
               x="140"
@@ -299,6 +320,7 @@
               class="piano"
               data-piano-key="F#4"
               data-key-num="6"
+              data-midi="78"
               stroke="#979797"
               fill="#4B4B4B"
               x="300"
@@ -311,6 +333,7 @@
               class="piano"
               data-piano-key="G#4"
               data-key-num="8"
+              data-midi="80"
               stroke="#979797"
               fill="#4B4B4B"
               x="380"
@@ -323,6 +346,7 @@
               class="piano"
               data-piano-key="A#5"
               data-key-num="10"
+              data-midi="82"
               stroke="#979797"
               fill="#4B4B4B"
               x="460"
@@ -335,34 +359,30 @@
       </svg>
     </div>
 
-    <audio class="keysound" id="C" data-piano-key="C3" src="audio/c3.mp3"></audio>
-    <audio class="keysound" id="C" data-piano-key="C#3" src="audio/c-3.mp3"></audio>
-    <audio class="keysound" id="D" data-piano-key="D3" src="audio/d3.mp3"></audio>
-    <audio class="keysound" id="E" data-piano-key="E3" src="audio/e3.mp3"></audio>
-    <audio class="keysound" id="F" data-piano-key="F3" src="audio/f3.mp3"></audio>
-    <audio class="keysound" id="G" data-piano-key="G3" src="audio/g3.mp3"></audio>
-    <audio class="keysound" id="A" data-piano-key="A4" src="audio/a4.mp3"></audio>
-    <audio class="keysound" id="A#" data-piano-key="A#4" src="audio/a-4.mp3"></audio>
-    <audio class="keysound" id="B" data-piano-key="B4" src="audio/b4.mp3"></audio>
-
-    <audio class="keysound" id="D#"data-piano-key="D#3" src="audio/d-3.mp3"></audio>
-    <audio class="keysound" id="F#"data-piano-key="F#3" src="audio/f-3.mp3"></audio>
-    <audio class="keysound" id="G#"data-piano-key="G#3" src="audio/g-3.mp3"></audio>
-
-    <audio class="keysound" id="C" data-piano-key="C4" src="audio/c4.mp3"></audio>
-    <audio class="keysound" id="C" data-piano-key="C#4" src="audio/c-4.mp3"></audio>
-
-    <audio class="keysound" id="D" data-piano-key="D4" src="audio/d4.mp3"></audio>
-    <audio class="keysound" id="E" data-piano-key="E4" src="audio/e4.mp3"></audio>
-    <audio class="keysound" id="F" data-piano-key="F4" src="audio/f4.mp3"></audio>
-    <audio class="keysound" id="G" data-piano-key="G4" src="audio/g4.mp3"></audio>
-    <audio class="keysound" id="D#"data-piano-key="D#4" src="audio/d-4.mp3"></audio>
-    <audio class="keysound" id="F#"data-piano-key="F#4" src="audio/f-4.mp3"></audio>
-    <audio class="keysound" id="G#"data-piano-key="G#4" src="audio/g-4.mp3"></audio>
-
-    <audio class="keysound" id="A5"data-piano-key="A5" src="audio/a5.mp3"></audio>
-    <audio class="keysound" id="A#5"data-piano-key="A#5" src="audio/a-5.mp3"></audio>
-    <audio class="keysound" id="B5"data-piano-key="B5" src="audio/b5.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C3" data-midi="60" src="audio/c3.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C#3"data-midi="61"  src="audio/c-3.mp3"></audio>
+    <audio class="keysound" id="D" data-piano-key="D3" data-midi="62" src="audio/d3.mp3"></audio>
+    <audio class="keysound" id="E" data-piano-key="E3" data-midi="64" src="audio/e3.mp3"></audio>
+    <audio class="keysound" id="F" data-piano-key="F3" data-midi="65" src="audio/f3.mp3"></audio>
+    <audio class="keysound" id="G" data-piano-key="G3" data-midi="67" src="audio/g3.mp3"></audio>
+    <audio class="keysound" id="A" data-piano-key="A4" data-midi="69" src="audio/a4.mp3"></audio>
+    <audio class="keysound" id="A#" data-piano-key="A#4" data-midi="70" src="audio/a-4.mp3"></audio>
+    <audio class="keysound" id="B" data-piano-key="B4" data-midi="71" src="audio/b4.mp3"></audio>
+    <audio class="keysound" id="D#"data-piano-key="D#3" data-midi="63"  src="audio/d-3.mp3"></audio>
+    <audio class="keysound" id="F#"data-piano-key="F#3" data-midi="66"  src="audio/f-3.mp3"></audio>
+    <audio class="keysound" id="G#"data-piano-key="G#3" data-midi="68"  src="audio/g-3.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C4"  data-midi="72" src="audio/c4.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C#4" data-midi="73"  src="audio/c-4.mp3"></audio>
+    <audio class="keysound" id="D" data-piano-key="D4" data-midi="74" src="audio/d4.mp3"></audio>
+    <audio class="keysound" id="E" data-piano-key="E4" data-midi="76" src="audio/e4.mp3"></audio>
+    <audio class="keysound" id="F" data-piano-key="F4" data-midi="77" src="audio/f4.mp3"></audio>
+    <audio class="keysound" id="G" data-piano-key="G4" data-midi="79" src="audio/g4.mp3"></audio>
+    <audio class="keysound" id="D#"data-piano-key="D#4"data-midi="75"  src="audio/d-4.mp3"></audio>
+    <audio class="keysound" id="F#"data-piano-key="F#4" data-midi="78"  src="audio/f-4.mp3"></audio>
+    <audio class="keysound" id="G#"data-piano-key="G#4" data-midi="80"  src="audio/g-4.mp3"></audio>
+    <audio class="keysound" id="A5"data-piano-key="A5" data-midi="81" src="audio/a5.mp3"></audio>
+    <audio class="keysound" id="A#5"data-piano-key="A#5" data-midi="82"  src="audio/a-5.mp3"></audio>
+    <audio class="keysound" id="B5"data-piano-key="B5" data-midi="83" src="audio/b5.mp3"></audio>
 
 
   </body>
