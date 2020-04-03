@@ -9,13 +9,14 @@
   <body>
     <h1>Piano</h1>
     <div class="options">
-      <label for="key-scale">Choose a key scale:</label>
-      <select onchange="selectKey(event)">
+      <label for="key-scale">Choose a Major key scale:</label>
+      <select onchange="selectMajKey(event)">
+        <option value="none">none</option>
         <option value="C Major">C Major</option>
         <option value="D Major">D Major</option>
         <option value="E Major">E Major</option>
         <option value="F Major">F Major</option>
-        <option value="G Major"selected="selected">G Major</option>
+        <option value="G Major">G Major</option>
         <option value="A Major">A Major</option>
         <option value="B Major">B Major</option>
         <option value="C# Major">C# Major</option>
@@ -23,8 +24,8 @@
         <option value="F# Major">F# Major</option>
         <option value="G# Major">G# Major</option>
         <option value="A# Major">A# Major</option>
-        
       </select>
+      
     </div>
 
     <div class="container">
@@ -42,7 +43,7 @@
             <rect
               id="octave-1-C-key"
               class="piano"
-              data-piano-key="C"
+              data-piano-key="C3"
               data-key-num="0"
               stroke="#555555"
               fill="#FFFFF7"
@@ -54,7 +55,7 @@
             <rect
               id="octave-1-D-key"
               class="piano"
-              data-piano-key="D"
+              data-piano-key="D3"
               data-key-num="2"
               stroke="#555555"
               fill="#FFFFF7"
@@ -66,7 +67,7 @@
             <rect
               id="octave-1-E-key"
               class="piano"
-              data-piano-key="E"
+              data-piano-key="E3"
               data-key-num="4"
               stroke="#555555"
               fill="#FFFFF7"
@@ -78,7 +79,7 @@
             <rect
               id="octave-1-F-key"
               class="piano"
-              data-piano-key="F"
+              data-piano-key="F3"
               data-key-num="5"
               stroke="#555555"
               fill="#FFFFF7"
@@ -90,7 +91,7 @@
             <rect
               id="octave-1-G-key"
               class="piano"
-              data-piano-key="G"
+              data-piano-key="G3"
               data-key-num="7"
               stroke="#555555"
               fill="#FFFFF7"
@@ -102,7 +103,7 @@
             <rect
               id="octave-1-A-key"
               class="piano"
-              data-piano-key="A"
+              data-piano-key="A4"
               data-key-num="9"
               stroke="#555555"
               fill="#FFFFF7"
@@ -114,7 +115,7 @@
             <rect
               id="octave-1-B-key"
               class="piano"
-              data-piano-key="B"
+              data-piano-key="B4"
               data-key-num="11"
               stroke="#555555"
               fill="#FFFFF7"
@@ -126,7 +127,7 @@
             <rect
               id="octave-1-C#-key"
               class="piano"
-              data-piano-key="C#"
+              data-piano-key="C#3"
               data-key-num="1"
               stroke="#979797"
               fill="#4B4B4B"
@@ -138,7 +139,7 @@
             <rect
               id="octave-1-D#-key"
               class="piano"
-              data-piano-key="D#"
+              data-piano-key="D#3"
               data-key-num="3"
               stroke="#979797"
               fill="#4B4B4B"
@@ -150,7 +151,7 @@
             <rect
               id="octave-1-F#-key"
               class="piano"
-              data-piano-key="F#"
+              data-piano-key="F#3"
               data-key-num="6"
               stroke="#979797"
               fill="#4B4B4B"
@@ -162,7 +163,7 @@
             <rect
               id="octave-1-G#-key"
               class="piano"
-              data-piano-key="G#"
+              data-piano-key="G#3"
               data-key-num="8"
               stroke="#979797"
               fill="#4B4B4B"
@@ -174,7 +175,7 @@
             <rect
               id="octave-1-A#-key"
               class="piano"
-              data-piano-key="A#"
+              data-piano-key="A#4"
               data-key-num="10"
               stroke="#979797"
               fill="#4B4B4B"
@@ -188,7 +189,7 @@
             <rect
               id="octave-2-C-key"
               class="piano"
-              data-piano-key="C"
+              data-piano-key="C4"
               data-key-num="0"
               stroke="#555555"
               fill="#FFFFF7"
@@ -200,7 +201,7 @@
             <rect
               id="octave-2-D-key"
               class="piano"
-              data-piano-key="D"
+              data-piano-key="D4"
               data-key-num="2"
               stroke="#555555"
               fill="#FFFFF7"
@@ -212,7 +213,7 @@
             <rect
               id="octave-2-E-key"
               class="piano"
-              data-piano-key="E"
+              data-piano-key="E4"
               data-key-num="4"
               stroke="#555555"
               fill="#FFFFF7"
@@ -224,7 +225,7 @@
             <rect
               id="octave-2-F-key"
               class="piano"
-              data-piano-key="F"
+              data-piano-key="F4"
               data-key-num="5"
               stroke="#555555"
               fill="#FFFFF7"
@@ -236,7 +237,7 @@
             <rect
               id="octave-2-G-key"
               class="piano"
-              data-piano-key="G"
+              data-piano-key="G4"
               data-key-num="7"
               stroke="#555555"
               fill="#FFFFF7"
@@ -248,7 +249,7 @@
             <rect
               id="octave-2-A-key"
               class="piano"
-              data-piano-key="A"
+              data-piano-key="A5"
               data-key-num="9"
               stroke="#555555"
               fill="#FFFFF7"
@@ -260,7 +261,7 @@
             <rect
               id="octave-2-B-key"
               class="piano"
-              data-piano-key="B"
+              data-piano-key="B5"
               data-key-num="11"
               stroke="#555555"
               fill="#FFFFF7"
@@ -272,7 +273,7 @@
             <rect
               id="octave-2-C#-key"
               class="piano"
-              data-piano-key="C#"
+              data-piano-key="C#4"
               data-key-num="1"
               stroke="#979797"
               fill="#4B4B4B"
@@ -284,7 +285,7 @@
             <rect
               id="octave-2-D#-key"
               class="piano"
-              data-piano-key="D#"
+              data-piano-key="D#4"
               data-key-num="3"
               stroke="#979797"
               fill="#4B4B4B"
@@ -296,7 +297,7 @@
             <rect
               id="octave-2-F#-key"
               class="piano"
-              data-piano-key="F#"
+              data-piano-key="F#4"
               data-key-num="6"
               stroke="#979797"
               fill="#4B4B4B"
@@ -308,7 +309,7 @@
             <rect
               id="octave-2-G#-key"
               class="piano"
-              data-piano-key="G#"
+              data-piano-key="G#4"
               data-key-num="8"
               stroke="#979797"
               fill="#4B4B4B"
@@ -320,7 +321,7 @@
             <rect
               id="octave-2-A#-key"
               class="piano"
-              data-piano-key="A#"
+              data-piano-key="A#5"
               data-key-num="10"
               stroke="#979797"
               fill="#4B4B4B"
@@ -334,18 +335,36 @@
       </svg>
     </div>
 
-    <audio data-piano-key="C" src="audio/c3.mp3"></audio>
-    <audio data-piano-key="D" src="audio/d3.mp3"></audio>
-    <audio data-piano-key="E" src="audio/e3.mp3"></audio>
-    <audio data-piano-key="F" src="audio/f3.mp3"></audio>
-    <audio data-piano-key="G" src="audio/g3.mp3"></audio>
-    <audio data-piano-key="A" src="audio/a3.mp3"></audio>
-    <audio data-piano-key="B" src="audio/b3.mp3"></audio>
-    <audio data-piano-key="C#" src="audio/c-3.mp3"></audio>
-    <audio data-piano-key="D#" src="audio/d-3.mp3"></audio>
-    <audio data-piano-key="F#" src="audio/f-3.mp3"></audio>
-    <audio data-piano-key="G#" src="audio/g-3.mp3"></audio>
-    <audio data-piano-key="A#" src="audio/a-3.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C3" src="audio/c3.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C#3" src="audio/c-3.mp3"></audio>
+    <audio class="keysound" id="D" data-piano-key="D3" src="audio/d3.mp3"></audio>
+    <audio class="keysound" id="E" data-piano-key="E3" src="audio/e3.mp3"></audio>
+    <audio class="keysound" id="F" data-piano-key="F3" src="audio/f3.mp3"></audio>
+    <audio class="keysound" id="G" data-piano-key="G3" src="audio/g3.mp3"></audio>
+    <audio class="keysound" id="A" data-piano-key="A4" src="audio/a4.mp3"></audio>
+    <audio class="keysound" id="A#" data-piano-key="A#4" src="audio/a-4.mp3"></audio>
+    <audio class="keysound" id="B" data-piano-key="B4" src="audio/b4.mp3"></audio>
+
+    <audio class="keysound" id="D#"data-piano-key="D#3" src="audio/d-3.mp3"></audio>
+    <audio class="keysound" id="F#"data-piano-key="F#3" src="audio/f-3.mp3"></audio>
+    <audio class="keysound" id="G#"data-piano-key="G#3" src="audio/g-3.mp3"></audio>
+
+    <audio class="keysound" id="C" data-piano-key="C4" src="audio/c4.mp3"></audio>
+    <audio class="keysound" id="C" data-piano-key="C#4" src="audio/c-4.mp3"></audio>
+
+    <audio class="keysound" id="D" data-piano-key="D4" src="audio/d4.mp3"></audio>
+    <audio class="keysound" id="E" data-piano-key="E4" src="audio/e4.mp3"></audio>
+    <audio class="keysound" id="F" data-piano-key="F4" src="audio/f4.mp3"></audio>
+    <audio class="keysound" id="G" data-piano-key="G4" src="audio/g4.mp3"></audio>
+    <audio class="keysound" id="D#"data-piano-key="D#4" src="audio/d-4.mp3"></audio>
+    <audio class="keysound" id="F#"data-piano-key="F#4" src="audio/f-4.mp3"></audio>
+    <audio class="keysound" id="G#"data-piano-key="G#4" src="audio/g-4.mp3"></audio>
+
+    <audio class="keysound" id="A5"data-piano-key="A5" src="audio/a5.mp3"></audio>
+    <audio class="keysound" id="A#5"data-piano-key="A#5" src="audio/a-5.mp3"></audio>
+    <audio class="keysound" id="B5"data-piano-key="B5" src="audio/b5.mp3"></audio>
+
+
   </body>
 
 

@@ -4,6 +4,7 @@
 //   afterLoaded();
 // }
 
+const pianoSound = document.querySelectorAll(".keysound");
 const pianoSvg = document.querySelectorAll(".piano");
 let hiColor = "#85D2FF";
 let regColor = "#FFFFF7";
@@ -11,11 +12,11 @@ let sharpColor = "#4B4B4B";
 //let selector = document.getElementById("key-scale");
 let keyStart;
 
-console.log(pianoSvg);
-selectKey();
-
-function selectKey(key) {
+function selectMajKey(key) {
   switch (key.target.value) {
+    case "none":
+      deHighlight();
+      break;
     case "C Major":
       deHighlight();
       keyStart = 0;
@@ -119,3 +120,17 @@ function majKeyHighlight() {
     }
   });
 }
+
+console.log(pianoSvg[0].dataset.pianoKey);
+console.log(pianoSound[0]);
+
+pianoSvg.forEach(function(x) {
+  x.addEventListener("click", function(any) {
+    for (let i = 0; i < pianoSound.length; i++) {
+      if (any.target.dataset.pianoKey == pianoSound[i].dataset.pianoKey) {
+        pianoSound[i].currentTime = 0;
+        pianoSound[i].play();
+      }
+    }
+  });
+});
