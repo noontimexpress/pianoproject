@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
     <title>Piano Project</title>
   </head>
   <body>
     <h1>Piano</h1>
     <div class="options">
       <label for="key-scale">Choose a key scale:</label>
-      <select id="key-scale">
+      <select onchange="selectKey(event)">
         <option value="C Major">C Major</option>
         <option value="D Major">D Major</option>
         <option value="E Major">E Major</option>
         <option value="F Major">F Major</option>
-        <option value="G Major">G Major</option>
+        <option value="G Major"selected="selected">G Major</option>
         <option value="A Major">A Major</option>
         <option value="B Major">B Major</option>
         <option value="C# Major">C# Major</option>
@@ -348,5 +347,9 @@
     <audio data-piano-key="G#" src="audio/g-3.mp3"></audio>
     <audio data-piano-key="A#" src="audio/a-3.mp3"></audio>
   </body>
+
+
+<script src="script.js"></script>
+
 </html>
 
