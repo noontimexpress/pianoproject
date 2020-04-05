@@ -171,3 +171,16 @@ function highPlayMIDI(x) {
     }
   }
 }
+
+let btn = document.querySelector("#randoNote");
+btn.addEventListener("click", function() {
+  randomNote();
+});
+
+function randomNote() {
+  let random = Math.floor(Math.random() * Math.floor(pianoSvg.length));
+  pianoSvg[random].style.fill = 'red';
+  setTimeout(function() {
+    majKeyHighlight();
+  }, 2000);
+}
