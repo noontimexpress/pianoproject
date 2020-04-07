@@ -14,6 +14,26 @@ let clickColor = "#c2c5CC";
 //let selector = document.getElementById("key-scale");
 let keyStart;
 
+const pianoObjArr = [];
+
+pianoSvg.forEach((x) => {
+  pianoObjArr.push({
+    name: x.id,
+    svg: x,
+    midi: x.dataset.midi,
+  });
+});
+
+for (let i = 0; i < pianoObjArr.length; i++) {
+  for (let j = 0; j < pianoSound.length; j++) {
+    if (pianoObjArr[i].midi == pianoSound[j].dataset.midi) {
+      pianoObjArr[i].audio = pianoSound[j];
+    }
+  }
+}
+
+console.log(pianoObjArr);
+
 function selectMajKey(key) {
   switch (key.target.value) {
     case "none":
@@ -175,9 +195,6 @@ function highPlayMIDI(x) {
 let gameCount;
 let randHigh;
 let invl = [];
-let allnotes = [];
-
-pianoSound.forEach(x => allnotes.push(x.dataset.midi))
 
 let btn = document.querySelector("#randoNote");
 btn.addEventListener("click", function () {
@@ -185,36 +202,17 @@ btn.addEventListener("click", function () {
   document.querySelector("#randoNote").innerHTML = "Stop Game";
 });
 
-console.log(pianoSvg);
-
 function randomInvl() {
   const majSev = 11;
   const minSev = 10;
-  let secNote;
   invl = [majSev, minSev];
 
-  let oneNote = Math.floor(Math.random() * Math.floor(allnotes.length));
+  let randNote = Math.floor(Math.random() * Math.floor(pianoObjArr.length));
+  pianoObjArr[randNote].svg.style.fill = "red";
+  pianoObjArr[randNote].audio.currentTime = 0.05;
+  pianoObjArr[randNote].audio.play();
 
-  // if ((oneNote + (invl[Math.floor(Math.random() * invl.length)])) > pianoSvg.length) {
-  //   secNote = oneNote - (invl[Math.floor(Math.random() * invl.length)])
-  // } else {
-  //   secNote = oneNote + (invl[Math.floor(Math.random() * invl.length)])
-  // }
-  for (let i of pianoSvg){
-    if (allnotes[oneNote] == i.dataset.midi){
-      i.style.fill = "red";
-      console.log(i.dataset.midi);
-      
-      console.log(pianoSound[i]);
-    }
-  }
-
-  // pianoSvg[oneNote].style.fill = "red";
-  // pianoSvg[secNote].style.fill = "green";
-
-console.log(`first note is ${allnotes[oneNote]}, second note is ${secNote}`);
-
-  setInterval(function () {
+  setTimeout(function () {
     majKeyHighlight();
-  }, 10000);
+  }, 2000);
 }
