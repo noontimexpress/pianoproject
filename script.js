@@ -6,10 +6,9 @@
 
 const pianoSound = document.querySelectorAll(".keysound");
 const pianoSvg = document.querySelectorAll(".piano");
+const majScale = [2, 4, 5, 7, 9, 11];
 let hiColor = "#f0d2a8";
 let rootColor = "#84DB90";
-let regColor = "#FFFFF7";
-let sharpColor = "#4B4B4B";
 let clickColor = "#c2c5CC";
 //let selector = document.getElementById("key-scale");
 let keyStart;
@@ -19,7 +18,10 @@ const pianoObjArr = [];
 pianoSvg.forEach((x) => {
   pianoObjArr.push({
     name: x.id,
+    key: x.dataset.pianoKey,
+    num: x.dataset.keyNum,
     svg: x,
+    color: x.style.fill,
     midi: x.dataset.midi,
   });
 });
@@ -35,112 +37,60 @@ for (let i = 0; i < pianoObjArr.length; i++) {
 console.log(pianoObjArr);
 
 function selectMajKey(key) {
-  switch (key.target.value) {
-    case "none":
-      deHighlight();
-      break;
-    case "C Major":
-      deHighlight();
-      keyStart = 0;
+  pianoObjArr.forEach((x) => {
+    if (key.target.value == x.key) {
+      keyStart = x.num;
       majKeyHighlight();
-      break;
-    case "C# Major":
+    } else if (key.target.value == "none") {
       deHighlight();
-      keyStart = 1;
-      majKeyHighlight();
-      break;
-    case "D Major":
-      deHighlight();
-      keyStart = 2;
-      majKeyHighlight();
-      break;
-    case "D# Major":
-      deHighlight();
-      keyStart = 3;
-      majKeyHighlight();
-      break;
-    case "E Major":
-      deHighlight();
-      keyStart = 4;
-      majKeyHighlight();
-      break;
-    case "F Major":
-      deHighlight();
-      keyStart = 5;
-      majKeyHighlight();
-      break;
-    case "F# Major":
-      deHighlight();
-      keyStart = 6;
-      majKeyHighlight();
-      break;
-    case "G Major":
-      deHighlight();
-      keyStart = 7;
-      majKeyHighlight();
-      break;
-    case "G# Major":
-      deHighlight();
-      keyStart = 8;
-      majKeyHighlight();
-      break;
-    case "A Major":
-      deHighlight();
-      keyStart = 9;
-      majKeyHighlight();
-      break;
-    case "A# Major":
-      deHighlight();
-      keyStart = 10;
-      majKeyHighlight();
-      break;
-    case "B Major":
-      deHighlight();
-      keyStart = 11;
-      majKeyHighlight();
-      break;
-  }
+    }
+  });
 }
 
 function deHighlight() {
-  pianoSvg.forEach(function (x) {
-    if (x.id.includes("#")) {
-      x.style.fill = sharpColor;
-    } else {
-      x.style.fill = regColor;
-    }
+  pianoObjArr.forEach(function (x) {
+    x.svg.style.fill = x.color;
   });
 }
 
 function majKeyHighlight() {
-  let keyFirst;
-  for (let i = 0; i < pianoSvg.length; i++) {
-    if (pianoSvg[i].dataset.keyNum == keyStart) {
-      pianoSvg[i].style.fill = rootColor; //color starting key
-      keyFirst = parseInt(pianoSvg[i].dataset.keyNum);
-    }
-  }
+  deHighlight();
 
-  pianoSvg.forEach(function (x) {
-    if (x.dataset.keyNum == (keyFirst + 2) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.dataset.keyNum == (keyFirst + 4) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.dataset.keyNum == (keyFirst + 5) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.dataset.keyNum == (keyFirst + 7) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.dataset.keyNum == (keyFirst + 9) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.dataset.keyNum == (keyFirst + 11) % 12) {
-      x.style.fill = hiColor;
-    } else if (x.id.includes("#") && x.dataset.keyNum != keyFirst) {
-      x.style.fill = sharpColor;
-    } else if (!x.id.includes("#") && x.dataset.keyNum != keyFirst) {
-      x.style.fill = regColor;
+  pianoObjArr.forEach((x) => {
+    if (x.num == keyStart) {
+      x.svg.style.fill = rootColor;
     }
   });
+
+  majScale.forEach((el) => {
+    pianoObjArr.forEach((x) => {
+      if (x.num == (+keyStart + +el) % 12) {
+        x.svg.style.fill = hiColor;
+      } 
+    });
+  });
 }
+
+// pianoSvg.forEach(function (x) {
+//   if (x.dataset.keyNum == (keyFirst + 2) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.dataset.keyNum == (keyFirst + 4) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.dataset.keyNum == (keyFirst + 5) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.dataset.keyNum == (keyFirst + 7) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.dataset.keyNum == (keyFirst + 9) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.dataset.keyNum == (keyFirst + 11) % 12) {
+//     x.style.fill = hiColor;
+//   } else if (x.id.includes("#") && x.dataset.keyNum != keyFirst) {
+//     x.style.fill = "#FFFFF7";
+//   } else if (!x.id.includes("#") && x.dataset.keyNum != keyFirst) {
+//     x.style.fill = "#FFFFF7";
+//   }
+// });
+// }
 
 // console.log(pianoSvg[0].dataset.pianoKey);
 // console.log(pianoSound[0]);
@@ -192,8 +142,6 @@ function highPlayMIDI(x) {
   }
 }
 
-let gameCount;
-let randHigh;
 let invl = [];
 
 let btn = document.querySelector("#randoNote");
