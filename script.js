@@ -10,7 +10,6 @@ const majScale = [2, 4, 5, 7, 9, 11];
 let hiColor = "#f0d2a8";
 let rootColor = "#84DB90";
 let clickColor = "#c2c5CC";
-//let selector = document.getElementById("key-scale");
 let keyStart;
 
 const pianoObjArr = [];
@@ -33,8 +32,6 @@ for (let i = 0; i < pianoObjArr.length; i++) {
     }
   }
 }
-
-console.log(pianoObjArr);
 
 function selectMajKey(key) {
   pianoObjArr.forEach((x) => {
@@ -66,34 +63,10 @@ function majKeyHighlight() {
     pianoObjArr.forEach((x) => {
       if (x.num == (+keyStart + +el) % 12) {
         x.svg.style.fill = hiColor;
-      } 
+      }
     });
   });
 }
-
-// pianoSvg.forEach(function (x) {
-//   if (x.dataset.keyNum == (keyFirst + 2) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.dataset.keyNum == (keyFirst + 4) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.dataset.keyNum == (keyFirst + 5) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.dataset.keyNum == (keyFirst + 7) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.dataset.keyNum == (keyFirst + 9) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.dataset.keyNum == (keyFirst + 11) % 12) {
-//     x.style.fill = hiColor;
-//   } else if (x.id.includes("#") && x.dataset.keyNum != keyFirst) {
-//     x.style.fill = "#FFFFF7";
-//   } else if (!x.id.includes("#") && x.dataset.keyNum != keyFirst) {
-//     x.style.fill = "#FFFFF7";
-//   }
-// });
-// }
-
-// console.log(pianoSvg[0].dataset.pianoKey);
-// console.log(pianoSound[0]);
 
 pianoSvg.forEach(function (x) {
   x.addEventListener("click", function (any) {
@@ -142,8 +115,6 @@ function highPlayMIDI(x) {
   }
 }
 
-let invl = [];
-
 let btn = document.querySelector("#randoNote");
 btn.addEventListener("click", function () {
   randomInvl();
@@ -151,16 +122,39 @@ btn.addEventListener("click", function () {
 });
 
 function randomInvl() {
-  const majSev = 11;
-  const minSev = 10;
-  invl = [majSev, minSev];
+  const invl = [
+    { name: "majSev", val: 11 },
+    { name: "minSev", val: 10 },
+    { name: "majFifth", val: 7}
+  ];
 
-  let randNote = Math.floor(Math.random() * Math.floor(pianoObjArr.length));
-  pianoObjArr[randNote].svg.style.fill = "red";
-  pianoObjArr[randNote].audio.currentTime = 0.05;
-  pianoObjArr[randNote].audio.play();
+  let pianoObjArrMidi = pianoObjArr.sort((a, b) => a.midi - b.midi);
+  let rand = Math.floor(Math.random() * Math.floor(pianoObjArrMidi.length));
+  let randInvl = invl[Math.floor(Math.random() * Math.floor(invl.length))];
+  let secVal = randInvl.val;
+
+  let sec;
+
+  let firstNote = pianoObjArrMidi[rand];
+
+  if (rand + secVal > pianoObjArrMidi.length - 1) {
+    sec = rand - (12 - secVal);
+  } else {
+    sec = rand + secVal;
+  }
+
+  let secNote = pianoObjArrMidi[sec];
+  document.querySelector("#interval").innerHTML = `this is ${randInvl.name}`;
+
+  firstNote.svg.style.fill = "red";
+  secNote.svg.style.fill = "green";
+
+  firstNote.audio.currentTime = 0.05;
+  firstNote.audio.play();
+  secNote.audio.currentTime = 0.05;
+  secNote.audio.play();
 
   setTimeout(function () {
     majKeyHighlight();
-  }, 2000);
+  }, 200);
 }
