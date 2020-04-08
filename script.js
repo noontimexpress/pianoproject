@@ -1,9 +1,3 @@
-// if (document.readyState === "loading") {
-//   document.addEventListener("DOMContentLoaded", afterLoaded);
-// } else {
-//   afterLoaded();
-// }
-
 const pianoSound = document.querySelectorAll(".keysound");
 const pianoSvg = document.querySelectorAll(".piano");
 const majScale = [2, 4, 5, 7, 9, 11];
@@ -125,7 +119,9 @@ function randomInvl() {
   const invl = [
     { name: "majSev", val: 11 },
     { name: "minSev", val: 10 },
-    { name: "majFifth", val: 7}
+    { name: "majFifth", val: 7 },
+    { name: "majSixth", val: 9 },
+    { name: "minSixth", val: 8 },
   ];
 
   let pianoObjArrMidi = pianoObjArr.sort((a, b) => a.midi - b.midi);
@@ -136,6 +132,7 @@ function randomInvl() {
   let sec;
 
   let firstNote = pianoObjArrMidi[rand];
+  let rootName = firstNote.audio.id;
 
   if (rand + secVal > pianoObjArrMidi.length - 1) {
     sec = rand - (12 - secVal);
@@ -144,17 +141,25 @@ function randomInvl() {
   }
 
   let secNote = pianoObjArrMidi[sec];
-  document.querySelector("#interval").innerHTML = `this is ${randInvl.name}`;
+  
+  setTimeout(function () {
+    document.querySelector("#interval").innerHTML = `this is ${rootName} ${randInvl.name}`;
+  }, 2000);
 
-  firstNote.svg.style.fill = "red";
-  secNote.svg.style.fill = "green";
+  setTimeout(function () {
+    firstNote.svg.style.fill = "red";
+    firstNote.audio.currentTime = 0.05;
+    firstNote.audio.play();
+  }, 100);
 
-  firstNote.audio.currentTime = 0.05;
-  firstNote.audio.play();
-  secNote.audio.currentTime = 0.05;
-  secNote.audio.play();
+  setTimeout(function () {
+    secNote.svg.style.fill = "green";
+    secNote.audio.currentTime = 0.05;
+    secNote.audio.play();
+  }, 400);
 
   setTimeout(function () {
     majKeyHighlight();
-  }, 200);
+    document.querySelector("#randoNote").innerHTML = "Play Game";
+  }, 4000);
 }
